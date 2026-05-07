@@ -13,19 +13,19 @@ import { RootStackParamList } from "../navigation/typesNavigation";
 
 export interface EditForm {
   name: string;
-  email: string;
+  description: string;
 }
 
 type PropsEdit = StackScreenProps<RootStackParamList, "Edit">;
 
 export const EditScreen = ({ navigation, route }: PropsEdit) => {
   //Estraer los dos parámetros tipados
-  const { student, mode } = route.params;
+  const { product, mode } = route.params;
   const isEdit: boolean = mode === "edit";
 
   const [editForm, setEditForm] = useState<EditForm>({
-    name: student.name,
-    email: student.email,
+    name: product.name,
+    description: product.description,
   });
 
   const handleInputChance = (key: string, value: string) => {
@@ -35,7 +35,7 @@ export const EditScreen = ({ navigation, route }: PropsEdit) => {
   const handleSave = () => {
     Alert.alert(
       "Cambios guardados",
-      `Nuevo nombre: ${editForm.name}\nNuevo email: ${editForm.email}`,
+      `Nuevo nombre: ${editForm.name}\nNueva descripción: ${editForm.description}`,
       [{ text: "OK", onPress: () => navigation.goBack() }],
     );
   };
@@ -54,7 +54,7 @@ export const EditScreen = ({ navigation, route }: PropsEdit) => {
       </View>
 
       <View style={editStyles.card}>
-        <Text style={editStyles.avatar}>{student.avatar}</Text>
+        <Text style={editStyles.avatar}>{product.avatar}</Text>
 
         <Text style={editStyles.label}>Nombre</Text>
         <TextInput
@@ -64,19 +64,19 @@ export const EditScreen = ({ navigation, route }: PropsEdit) => {
           editable={isEdit}
         />
 
-        <Text style={editStyles.label}>Email</Text>
+        <Text style={editStyles.label}>Descripción</Text>
         <TextInput
           style={[editStyles.input, !isEdit && editStyles.inputDisabled]}
-          value={editForm.email}
-          onChangeText={(value) => handleInputChance("email", value)}
+          value={editForm.description}
+          onChangeText={(value) => handleInputChance("description", value)}
           editable={isEdit}
-          keyboardType="email-address"
+          multiline={true}
+        
         />
-
-        <Text style={editStyles.label}>Carrera</Text>
+        <Text style={editStyles.label}>Precio</Text>
         <TextInput
           style={[editStyles.input, editStyles.inputDisabled]}
-          value={student.career}
+          value={String(product.price)}
           editable={false}
         />
         <TouchableOpacity style={editStyles.saveBtn} onPress={handleSave}>

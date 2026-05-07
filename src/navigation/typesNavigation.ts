@@ -1,7 +1,7 @@
-import { Student } from "../types";
+import { Product } from "../types";
 
 export type RootStackParamList = {
     Home: undefined
-    Detail: {student : Student}
-    Edit: {student: Student; mode: 'view' | 'edit'}
+    Detail: {product : Product}
+    Edit: {product: Product; mode: 'view' | 'edit'}
 };

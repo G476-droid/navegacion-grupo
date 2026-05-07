@@ -7,38 +7,38 @@ import { StackScreenProps } from "@react-navigation/stack";
 type PropsDetail = StackScreenProps<RootStackParamList, "Detail">;
 
 export const DetailScreen = ({ navigation, route }: PropsDetail) => {
-  const { student } = route.params;
+  const { product } = route.params;
   //console.log(route.params);
   
 
   return (
     <ScrollView style={detailStyles.container}>
       <View style={detailStyles.hero}>
-        <Text style={detailStyles.avatar}>{student.avatar}</Text>
-        <Text style={detailStyles.name}>{student.name}</Text>
-        <Text style={detailStyles.career}>{student.career}</Text>
+        <Text style={detailStyles.avatar}>{product.avatar}</Text>
+        <Text style={detailStyles.name}>{product.name}</Text>
+        <Text style={detailStyles.career}>{product.description}</Text>
       </View>
 
       <View style={detailStyles.card}>
-        <InfoRow label="📧 Email" value={student.email} />
-        <InfoRow label="🎂 Edad" value={`${student.age} años`}/>
-        <InfoRow label="📚 Semestre" value={`${student.semester}`} />
-        <InfoRow label="🆔 ID" value={student.id} />
+        <InfoRow label="📦 Nombre" value={product.name} />
+        <InfoRow label="📝 Descripción" value={product.description}/>
+        <InfoRow label="💲 Precio" value={`${product.price}`} />
+        <InfoRow label="🆔 ID" value={product.id} />
       </View>
 
       <View style={detailStyles.actions}>
         <TouchableOpacity
           style={[detailStyles.btn, detailStyles.btnPrimary]}
-          onPress={() => navigation.navigate('Edit', {student, mode: 'edit'})}
+          onPress={() => navigation.navigate('Edit', {product, mode: 'edit'})}
         >
           <Text style={detailStyles.btnPrimaryText}>✏️ Editar</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={[detailStyles.btn, detailStyles.btnSecondary]}
-          onPress={() => navigation.navigate('Edit', {student, mode: 'view'})}
+          onPress={() => navigation.navigate('Edit', {product, mode: 'view'})}
         >
-          <Text style={detailStyles.btnSecondaryText}>👁 Solo ver</Text>
+          <Text style={detailStyles.btnSecondaryText}>👁 Solo Ver</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>

@@ -20,10 +20,9 @@ export const homeStyles = StyleSheet.create({
     color: '#6B7280',
     marginTop: 4,
   },
-
 });
 
-export const studentCardStyles = StyleSheet.create({
+export const productCardStyles = StyleSheet.create({
   card: {
     backgroundColor: '#fff',
     borderRadius: 16,
@@ -228,6 +227,69 @@ export const editStyles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: '700',
+  },
+});
+
+
+export const aboutStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F3F4F6',
+    padding: 20,
+  },
+
+  title: {
+    fontSize: 28,
+    fontWeight: '800',
+    color: '#111827',
+    marginBottom: 20,
+  },
+
+  card: {
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    padding: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 3,
+  },
+
+  appName: {
+    textAlign: 'center',
+    fontSize: 18,
+    fontWeight: '800',
+    color: '#111827',
+    marginTop: 12,
+  },
+
+  description: {
+    textAlign: 'center',
+    fontSize: 14,
+    color: '#6B7280',
+    marginTop: 4,
+    marginBottom: 20,
+  },
+
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: 16,
+    paddingHorizontal: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#F3F4F6',
+  },
+
+  label: {
+    fontSize: 14,
+    color: '#6B7280',
+  },
+
+  value: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: '#111827',
   },
 });
 

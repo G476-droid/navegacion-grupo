@@ -1,10 +1,17 @@
 import React from "react";
 import { FlatList, Text, View } from "react-native";
-import { students } from "../data/students";
-import { homeStyles } from "../styles/appStyles";
-import { StudentCard } from "../components/StudentCard";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StackScreenProps } from "@react-navigation/stack";
+
+import { products } from "../data/products";
+import { homeStyles } from "../styles/appStyles";
+import { ProductCard } from "../components/ProductCard";
+
 import { RootStackParamList } from "../navigation/typesNavigation";
+import { StackNavigator } from "../navigation/StackNavigator";
+import { AcercaDeScreen } from "./AcercaDeScreen";
+
+const Tab = createBottomTabNavigator();
 
 // Navegación
 type PropsHome = StackScreenProps<RootStackParamList, "Home">;
@@ -14,21 +21,29 @@ export const HomeScreen = ({ navigation }: PropsHome) => {
   
   return (
     <View style={homeStyles.container}>
+      
       <View style={homeStyles.header}>
-        <Text style={homeStyles.title}>Directorio</Text>
+        <Text style={homeStyles.title}>Catálogo</Text>
+
         <Text style={homeStyles.subtitle}>
-          {students.length} estudiantes registrados
+          {products.length} productos registrados
         </Text>
       </View>
 
       <FlatList
-        data={students}
+        data={products}
         keyExtractor={(item) => item.id}
         contentContainerStyle={{ paddingBottom: 20 }}
         renderItem={({ item }) => (
-          <StudentCard student={item} onPress={() => navigation.navigate('Detail', {student : item})} />
+          <ProductCard
+            product={item}
+            onPress={() =>
+              navigation.navigate("Detail", { product: item })
+            }
+          />
         )}
       />
     </View>
   );
 };
+

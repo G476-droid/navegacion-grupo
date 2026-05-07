@@ -1,10 +1,9 @@
-export interface Student {
+export interface Product {
   id: string;
   name: string;
-  age: number;
-  career: string;
-  semester: number;
-  email: string;
+  description: string;
+  price: number;
+  stock: number;
   avatar: string;
 }
 

@@ -20,17 +20,17 @@ export const StackNavigator = () => {
       <Stack.Screen
         name="Home"
         component={HomeScreen}
-        options={{ title: "Lista Estudiantes" }}
+        options={{ title: "MENU PRINCIPAL" }}
       />
       <Stack.Screen
         name="Detail"
         component={DetailScreen}
-        options={{ title: "Detalle Estudiante" }}
+        options={{ title: "Detalle " }}
       />
       <Stack.Screen
         name="Edit"
         component={EditScreen}
-        options={{ title: "Editar/Ver" }}
+        options={{ title: "Editar Producto" }}
       />
     </Stack.Navigator>
   );
