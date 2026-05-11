@@ -6,18 +6,22 @@ export const homeStyles = StyleSheet.create({
     backgroundColor: '#F3F4F6',
   },
   header: {
+    backgroundColor: '#4F46E5',
     paddingHorizontal: 20,
-    paddingTop: 20,
-    paddingBottom: 10,
+    paddingTop: 24,
+    paddingBottom: 18,
+    borderBottomLeftRadius: 28,
+    borderBottomRightRadius: 28,
+    marginBottom: 8,
   },
   title: {
     fontSize: 28,
     fontWeight: '800',
-    color: '#111827',
+    color: '#fff',
   },
   subtitle: {
     fontSize: 14,
-    color: '#6B7280',
+    color: '#C7D2FE',
     marginTop: 4,
   },
   list: {
@@ -29,11 +33,13 @@ export const productCardStyles = StyleSheet.create({
   card: {
     backgroundColor: '#fff',
     borderRadius: 16,
-    padding: 16,
+    padding: 18,
     marginHorizontal: 16,
     marginVertical: 8,
     flexDirection: 'row',
     alignItems: 'center',
+    borderLeftWidth: 5,
+    borderLeftColor: '#4F46E5',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.08,
@@ -58,17 +64,23 @@ export const productCardStyles = StyleSheet.create({
     color: '#6B7280',
     marginBottom: 6,
   },
+  price: {
+    fontSize: 15,
+    color: '#111827',
+    fontWeight: '800',
+    marginBottom: 8,
+  },
   badge: {
-    backgroundColor: '#EEF2FF',
+    backgroundColor: '#DCFCE7',
     alignSelf: 'flex-start',
     paddingHorizontal: 10,
-    paddingVertical: 3,
+    paddingVertical: 4,
     borderRadius: 12,
   },
   badgeText: {
-    color: '#4F46E5',
+    color: '#166534',
     fontSize: 11,
-    fontWeight: '600',
+    fontWeight: '700',
   },
   arrow: {
     fontSize: 28,
@@ -84,7 +96,8 @@ export const detailStyles = StyleSheet.create({
   },
   hero: {
     backgroundColor: '#4F46E5',
-    paddingVertical: 30,
+    paddingVertical: 34,
+    paddingHorizontal: 18,
     alignItems: 'center',
     borderBottomLeftRadius: 32,
     borderBottomRightRadius: 32,
@@ -102,6 +115,7 @@ export const detailStyles = StyleSheet.create({
     fontSize: 14,
     color: '#C7D2FE',
     marginTop: 4,
+    textAlign: 'center',
   },
   card: {
     backgroundColor: '#fff',
@@ -131,6 +145,9 @@ export const detailStyles = StyleSheet.create({
     fontSize: 14,
     color: '#111827',
     fontWeight: '600',
+    flex: 1,
+    textAlign: 'right',
+    marginLeft: 12,
   },
   actions: {
     paddingHorizontal: 16,
@@ -170,6 +187,8 @@ export const editStyles = StyleSheet.create({
   modeBanner: {
     padding: 14,
     alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: '#E5E7EB',
   },
   editBanner: {
     backgroundColor: '#FEF3C7',
@@ -185,8 +204,10 @@ export const editStyles = StyleSheet.create({
   card: {
     backgroundColor: '#fff',
     margin: 16,
-    padding: 20,
+    padding: 22,
     borderRadius: 16,
+    borderTopWidth: 5,
+    borderTopColor: '#4F46E5',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.08,
@@ -210,7 +231,7 @@ export const editStyles = StyleSheet.create({
     borderColor: '#E5E7EB',
     borderRadius: 10,
     paddingHorizontal: 12,
-    paddingVertical: 10,
+    paddingVertical: 12,
     fontSize: 15,
     color: '#111827',
     backgroundColor: '#fff',
@@ -220,7 +241,7 @@ export const editStyles = StyleSheet.create({
     color: '#6B7280',
   },
   saveBtn: {
-    backgroundColor: '#10B981',
+    backgroundColor: '#4F46E5',
     paddingVertical: 14,
     borderRadius: 12,
     alignItems: 'center',
@@ -295,4 +316,3 @@ export const aboutStyles = StyleSheet.create({
     color: '#111827',
   },
 });
-

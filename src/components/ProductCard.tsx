@@ -15,7 +15,7 @@ export const ProductCard = React.memo(({product, onPress}:Props) => {
       <View style={productCardStyles.info}>
         <Text style={productCardStyles.name} numberOfLines={1}>{product.name}</Text>
         <Text style={productCardStyles.career} numberOfLines={2}>{product.description}</Text>
-        <Text style={productCardStyles.career}>$ {product.price}</Text>
+        <Text style={productCardStyles.price}>$ {product.price}</Text>
         <View style={productCardStyles.badge}>
           <Text style={productCardStyles.badgeText}>Stock {product.stock}</Text>
         </View>
