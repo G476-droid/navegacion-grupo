@@ -19,7 +19,6 @@ export interface EditForm {
 type PropsEdit = StackScreenProps<RootStackParamList, "Edit">;
 
 export const EditScreen = ({ navigation, route }: PropsEdit) => {
-  //Estraer los dos parámetros tipados
   const { product, mode } = route.params;
   const isEdit: boolean = mode === "edit";
 
@@ -29,13 +28,20 @@ export const EditScreen = ({ navigation, route }: PropsEdit) => {
   });
 
   const handleInputChance = (key: string, value: string) => {
-    setEditForm({ ...editForm, [key]: value });
+    setEditForm((editForm) => ({ ...editForm, [key]: value }));
   };
 
   const handleSave = () => {
+    if (!isEdit) return;
+
+    if (editForm.name.trim() === "" || editForm.description.trim() === "") {
+      Alert.alert("Campos incompletos", "Completa el nombre y la descripción");
+      return;
+    }
+
     Alert.alert(
       "Cambios guardados",
-      `Nuevo nombre: ${editForm.name}\nNueva descripción: ${editForm.description}`,
+      `Nuevo nombre: ${editForm.name.trim()}\nNueva descripción: ${editForm.description.trim()}`,
       [{ text: "OK", onPress: () => navigation.goBack() }],
     );
   };
@@ -76,12 +82,20 @@ export const EditScreen = ({ navigation, route }: PropsEdit) => {
         <Text style={editStyles.label}>Precio</Text>
         <TextInput
           style={[editStyles.input, editStyles.inputDisabled]}
-          value={String(product.price)}
+          value={`$ ${product.price}`}
           editable={false}
         />
-        <TouchableOpacity style={editStyles.saveBtn} onPress={handleSave}>
-          <Text style={editStyles.saveBtnText}>Guardar cambios</Text>
-        </TouchableOpacity>
+        <Text style={editStyles.label}>Stock</Text>
+        <TextInput
+          style={[editStyles.input, editStyles.inputDisabled]}
+          value={String(product.stock)}
+          editable={false}
+        />
+        {isEdit && (
+          <TouchableOpacity style={editStyles.saveBtn} onPress={handleSave}>
+            <Text style={editStyles.saveBtnText}>Guardar cambios</Text>
+          </TouchableOpacity>
+        )}
       </View>
     </ScrollView>
   );

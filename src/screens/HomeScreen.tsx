@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { FlatList, Text, View } from "react-native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StackScreenProps } from "@react-navigation/stack";
 
 import { products } from "../data/products";
@@ -8,16 +7,17 @@ import { homeStyles } from "../styles/appStyles";
 import { ProductCard } from "../components/ProductCard";
 
 import { RootStackParamList } from "../navigation/typesNavigation";
-import { StackNavigator } from "../navigation/StackNavigator";
-import { AcercaDeScreen } from "./AcercaDeScreen";
+import { Product } from "../types";
 
-const Tab = createBottomTabNavigator();
-
-// Navegación
 type PropsHome = StackScreenProps<RootStackParamList, "Home">;
 
 export const HomeScreen = ({ navigation }: PropsHome) => {
-
+  const renderProduct = useCallback(({ item }: { item: Product }) => (
+    <ProductCard
+      product={item}
+      onPress={() => navigation.navigate("Detail", { product: item })}
+    />
+  ), [navigation]);
   
   return (
     <View style={homeStyles.container}>
@@ -33,17 +33,12 @@ export const HomeScreen = ({ navigation }: PropsHome) => {
       <FlatList
         data={products}
         keyExtractor={(item) => item.id}
-        contentContainerStyle={{ paddingBottom: 20 }}
-        renderItem={({ item }) => (
-          <ProductCard
-            product={item}
-            onPress={() =>
-              navigation.navigate("Detail", { product: item })
-            }
-          />
-        )}
+        contentContainerStyle={homeStyles.list}
+        renderItem={renderProduct}
+        initialNumToRender={6}
+        windowSize={5}
+        removeClippedSubviews={true}
       />
     </View>
   );
 };
-

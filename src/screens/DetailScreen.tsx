@@ -8,7 +8,6 @@ type PropsDetail = StackScreenProps<RootStackParamList, "Detail">;
 
 export const DetailScreen = ({ navigation, route }: PropsDetail) => {
   const { product } = route.params;
-  //console.log(route.params);
   
 
   return (
@@ -22,7 +21,8 @@ export const DetailScreen = ({ navigation, route }: PropsDetail) => {
       <View style={detailStyles.card}>
         <InfoRow label="📦 Nombre" value={product.name} />
         <InfoRow label="📝 Descripción" value={product.description}/>
-        <InfoRow label="💲 Precio" value={`${product.price}`} />
+        <InfoRow label="💲 Precio" value={`$ ${product.price}`} />
+        <InfoRow label="📦 Stock" value={`${product.stock}`} />
         <InfoRow label="🆔 ID" value={product.id} />
       </View>
 

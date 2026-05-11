@@ -20,6 +20,9 @@ export const homeStyles = StyleSheet.create({
     color: '#6B7280',
     marginTop: 4,
   },
+  list: {
+    paddingBottom: 20,
+  },
 });
 
 export const productCardStyles = StyleSheet.create({
@@ -292,5 +295,4 @@ export const aboutStyles = StyleSheet.create({
     color: '#111827',
   },
 });
-
 
